@@ -12,6 +12,7 @@ TagManager:
   - Player
   - Cloud
   - Obstacle
+  - PickUp
   layers:
   - Default
   - TransparentFX
