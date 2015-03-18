@@ -12,6 +12,7 @@ public class GameWorld : MonoBehaviour {
 	void Start () {
 		//init world
 		spawnTimer = spawnTime;
+		Random.seed = (int)Time.time;
 	}
 	
 	// Update is called once per frame
@@ -20,18 +21,27 @@ public class GameWorld : MonoBehaviour {
 		spawnTimer -= Time.deltaTime;
 		if (spawnTimer < 0.0f) {
 			//spawn an item
-			if (Random.Range(0,1) > 0) {
+			float randomFloat = Random.Range(-1.0f,1.0f);
+			float offset = Random.Range(-3.2f,3.2F);
+			Debug.Log(offset);
+			if (randomFloat > 0) {
 				//spawn pick up
 				GameObject newPickUp = Instantiate<GameObject>(PickUp);
 				//set position
-				newPickUp.transform.Translate(new Vector3(4,0,0));
 				newPickUp.transform.SetParent(transform);
+				newPickUp.transform.position = Vector3.zero;
+				newPickUp.transform.Translate(new Vector3(6,offset));
+				newPickUp.tag = "PickUp";
+
 			} else {
 				//spawn obstacle
 				GameObject newObstacle = Instantiate<GameObject>(Obstacle);
 				//set position
-				newObstacle.transform.Translate(new Vector3(4,0,0));
 				newObstacle.transform.SetParent(transform);
+				newObstacle.transform.position = Vector3.zero;
+				newObstacle.transform.Translate(new Vector3(6,offset,0));
+				newObstacle.tag = "Obstacle";
+			
 			}
 			spawnTimer = spawnTime;
 		}
