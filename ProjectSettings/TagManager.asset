@@ -9,6 +9,9 @@ TagManager:
   - MusicOffButton
   - SfxOnButton
   - SfxOffButton
+  - Player
+  - Cloud
+  - Obstacle
   layers:
   - Default
   - TransparentFX
