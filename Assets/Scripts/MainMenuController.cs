@@ -7,7 +7,7 @@ public class MainMenuController : MonoBehaviour
     public GameObject[] m_CanvasList;
     private string m_sCurrentCanvas;
 
-    //public Text m_Highscore, m_PercentCorrect, m_TotalPopped;
+    public Text m_Highscore, m_LongestPlayTime, m_AvgGrade;
 
     void Start()
     {
@@ -130,12 +130,13 @@ public class MainMenuController : MonoBehaviour
 
     public void ResetStats()
     {
-        //PlayerPrefs.SetInt("Highscore", 0);
-        //PlayerPrefs.SetInt("TotalCorrect", 0);
-        //PlayerPrefs.SetInt("TotalPopped", 0);
+        PlayerPrefs.SetInt("Highscore", 0);
+        PlayerPrefs.SetInt("LongestPlayTime", 0);
+		PlayerPrefs.SetInt("TotalGrade", 0);
+		PlayerPrefs.SetInt("TotalPlaythroughs", 0);
 
-        //m_Highscore.text = "0";
-        //m_PercentCorrect.text = "0 %";
-        //m_TotalPopped.text = "0";
+		m_Highscore.text = "0";
+        m_LongestPlayTime.text = "0";
+		m_AvgGrade.text = "0";
     }
 }
