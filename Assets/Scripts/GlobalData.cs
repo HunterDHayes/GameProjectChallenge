@@ -8,12 +8,8 @@ public class GlobalData : MonoBehaviour
     #region Data Members
     static private GlobalData m_instance;
 
-    public bool[] m_bOperatorsOn;
-
     [SerializeField]
     private bool m_RenderedSplashScreens;
-
-    public enum PauseStates { UNPAUSED, PAUSED, };
     #endregion
 
     public static GlobalData GetGlobalData()
@@ -48,12 +44,6 @@ public class GlobalData : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this);
-        PlayerPrefs.SetInt("Paused", (int)PauseStates.UNPAUSED);
-
-        m_bOperatorsOn = new bool[4];
-
-        for (int i = 0; i < m_bOperatorsOn.Length; i++)
-            m_bOperatorsOn[i] = false;
     }
 
     // Update is called once per frame
