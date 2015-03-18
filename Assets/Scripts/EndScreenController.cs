@@ -4,11 +4,12 @@ using UnityEngine.UI;
 
 public class EndScreenController : MonoBehaviour
 {
-    public Text m_Score;
+    public Text m_Score, m_Time;
 
     void Start()
     {
         m_Score.text = "" + PlayerPrefs.GetInt("Score");
+        m_Time.text = "" + PlayerPrefs.GetInt("Time");
 
         GameObject soundManager = GameObject.FindGameObjectWithTag("SoundManager");
 
