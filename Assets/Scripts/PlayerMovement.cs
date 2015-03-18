@@ -16,7 +16,9 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//input
-
+		if (transform.position.y < -7.0f) {
+			Application.LoadLevel("GameOver");
+		}
 
 			
 	}
@@ -54,10 +56,14 @@ public class PlayerMovement : MonoBehaviour {
 		}
 	}
 	void Death(){
-		rigid.AddForce (new Vector2 (0, -50));
-		PlayerPrefs.SetInt("Score",score);
-		score = 0;
 
-		alive = false;
+		if (alive) {
+			rigid.AddForce (new Vector2 (0, -50));
+			PlayerPrefs.SetInt ("Score", score);
+			PlayerPrefs.SetInt ("TotalPlaythroughs", PlayerPrefs.GetInt ("TotalPlaythroughs") + 1);
+			score = 0;
+
+			alive = false;
+		}
 	}
 }
