@@ -14,16 +14,13 @@ public class GameWorld : MonoBehaviour {
 	public float speedIncreaseTime;
 	private float speedIncreaseTimer;
 	private float maxSpeed;
-	private bool once;
-	public float waitTime;
-	private float waitTimer;
+
 	// Use this for initialization
 	void Start () {
 		//init world
 		spawnTimer = spawnTime;
 		speedIncreaseTimer = speedIncreaseTime;
 		maxSpeed = worldSpeed * 2.0f;
-		once = false;
 		Random.seed = (int)Time.time;
 	}
 	
@@ -31,10 +28,7 @@ public class GameWorld : MonoBehaviour {
 	void Update () {
 		spawnTimer -= Time.deltaTime;
 		speedIncreaseTimer -= Time.deltaTime;
-		if (Input.GetMouseButton(0)) {
-			once = true;
-		}
-		if (once) {
+
 			if (speedIncreaseTimer < 0.0f) {
 				if (worldSpeed < maxSpeed) {
 					worldSpeed += (worldSpeed * 0.5f);
@@ -61,6 +55,6 @@ public class GameWorld : MonoBehaviour {
 			
 				spawnTimer = spawnTime;
 			}
-		}
+
 	}
 }
