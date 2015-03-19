@@ -1177,6 +1177,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 931565124d47fe8458473d2cb970f838, type: 3}
   - {fileID: 21300000, guid: 61a9fee6622755b4cab6799371700b80, type: 3}
   - {fileID: 21300000, guid: 15e14d85d0fd2b5479a5e73ded403ea5, type: 3}
+  waitTime: 5
 --- !u!50 &1571163900
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -1546,6 +1547,7 @@ MonoBehaviour:
   Patterns:
   - {fileID: 148714, guid: b679411d6a2ac1c4e89c9b612955e778, type: 2}
   speedIncreaseTime: 0
+  waitTime: 0
 --- !u!4 &1887404297
 Transform:
   m_PrefabParentObject: {fileID: 497750, guid: 0c0b5319aad5f004c9fc747dfd0fba8d, type: 2}

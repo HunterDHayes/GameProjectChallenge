@@ -8,6 +8,9 @@ public class PlayerMovement : MonoBehaviour {
 	private bool alive = true;
 	private int score = 0;
 	public Sprite[] playerSprtites;
+	private bool once;
+	public float waitTime;
+	private float waitTimer;
 	// Use this for initialization
 	void Start () {
 		rigid = GetComponent<Rigidbody2D> ();
@@ -17,10 +20,17 @@ public class PlayerMovement : MonoBehaviour {
 		int playerShip = PlayerPrefs.GetInt ("PlayerChoice");
 		GetComponent<SpriteRenderer> ().sprite = playerSprtites[playerShip];
 		//orange,blue,pink,green
+		waitTimer = waitTime;
+		once = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		waitTime -= Time.deltaTime;
+		if (once == false && Input.GetMouseButton(0) || waitTime < 0.0f) {
+			rigid.gravityScale = 1.0f;
+			once = true;
+		}
 		//input
 		if (transform.position.y < -7.0f) {
 			Application.LoadLevel("GameOver");
@@ -40,11 +50,13 @@ public class PlayerMovement : MonoBehaviour {
 				rigid.AddForce (new Vector2 (0, (liftForce * Time.deltaTime)));
 			}
 		}
-		if (Input.GetKey(KeyCode.R)) {
-			alive = true;
-			transform.position = new Vector3(-4.0f,0.0f,0.0f);
-			rigid.velocity = new Vector2(0,0);
+		if (once == false) {
+
+			rigid.gravityScale = 0.0f;
 		}
+
+
+			
 	}
 	void OnCollisionEnter2D(Collision2D collision)
 	{
