@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour {
 		if (transform.position.y < -7.0f) {
 			Application.LoadLevel("GameOver");
 		}
+		if (Input.GetKeyDown(KeyCode.Escape)) {
+			Application.LoadLevel("MainMenu");
+		}
 
 			
 	}

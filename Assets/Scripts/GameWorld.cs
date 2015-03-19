@@ -8,6 +8,8 @@ public class GameWorld : MonoBehaviour {
 	private float spawnTimer;
 	public GameObject PickUp;
 	public GameObject Obstacle;
+	public GameObject[] PickUpObjects;
+	public GameObject[] ObstacleObjects;
 	// Use this for initialization
 	void Start () {
 		//init world
@@ -26,20 +28,20 @@ public class GameWorld : MonoBehaviour {
 			Debug.Log(offset);
 			if (randomFloat > 0) {
 				//spawn pick up
-				GameObject newPickUp = Instantiate<GameObject>(PickUp);
+				GameObject newPickUp = Instantiate<GameObject>(PickUpObjects[Random.Range(0,PickUpObjects.Length)]);
 				//set position
 				newPickUp.transform.SetParent(transform);
 				newPickUp.transform.position = Vector3.zero;
-				newPickUp.transform.Translate(new Vector3(6,offset));
+				newPickUp.transform.Translate(new Vector3(10,offset));
 				newPickUp.tag = "PickUp";
 
 			} else {
 				//spawn obstacle
-				GameObject newObstacle = Instantiate<GameObject>(Obstacle);
+				GameObject newObstacle = Instantiate<GameObject>(ObstacleObjects[Random.Range(0,ObstacleObjects.Length)]);
 				//set position
 				newObstacle.transform.SetParent(transform);
 				newObstacle.transform.position = Vector3.zero;
-				newObstacle.transform.Translate(new Vector3(6,offset,0));
+				newObstacle.transform.Translate(new Vector3(10,offset,0));
 				newObstacle.tag = "Obstacle";
 			
 			}
