@@ -35,15 +35,19 @@ public class GameWorld : MonoBehaviour {
 		}
 		transform.Translate (new Vector3 (-worldSpeed * Time.deltaTime, 0, 0));
 		if (spawnTimer < 0.0f) {
-			GameObject pattern = Instantiate<GameObject>(Patterns[Random.Range(0,Patterns.Length)]);
-			pattern.transform.SetParent(transform);
+			GameObject pattern = Patterns[Random.Range(0,Patterns.Length)];
+
 			//make each object a random one
 			for (int i = 0; i < pattern.transform.childCount; i++) {
 				GameObject child = pattern.transform.GetChild(i).gameObject;
 				if (child.tag == "Obstacle") {
-					child = ObstacleObjects[Random.Range(0,ObstacleObjects.Length)];
-				}else {
-					child = PickUpObjects[Random.Range(0,PickUpObjects.Length)];
+					GameObject newObject = Instantiate<GameObject>(ObstacleObjects[Random.Range(0,ObstacleObjects.Length)]);
+					newObject.transform.position = child.transform.position;
+					newObject.transform.SetParent(transform);
+				}else if(child.tag == "PickUp"){
+					GameObject newObject = Instantiate<GameObject>(PickUpObjects[Random.Range(0,PickUpObjects.Length)]);
+					newObject.transform.position = child.transform.position;
+					newObject.transform.SetParent(transform);
 				}
 			}
 

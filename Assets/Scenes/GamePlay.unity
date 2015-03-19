@@ -1535,7 +1535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1571163898}
   worldSpeed: 3
-  spawnTime: 10
+  spawnTime: 8
   PickUp: {fileID: 142800, guid: c397c5a3aa6148740a98a98d8b284e00, type: 2}
   Obstacle: {fileID: 142384, guid: 5cc4ce9e4746b8146bb41440e1c8a7d6, type: 2}
   PickUpObjects:
