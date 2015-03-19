@@ -13,9 +13,16 @@ public class MainMenuController : MonoBehaviour
 	public Image PlayerChoice;
 
 
-    void Start()
+	void Start()
     {
-        if (!GlobalData.GetGlobalData().RenderedSplashScreens)
+		m_Highscore.text = "" + PlayerPrefs.GetInt ("Highscore");
+		m_LongestPlayTime.text = "" + PlayerPrefs.GetInt ("LongestPlayTime");
+		if (PlayerPrefs.GetInt ("TotalPlaythroughs") == 0)
+			m_AvgGrade.text = "0";
+		else
+			m_AvgGrade.text = "" + PlayerPrefs.GetInt ("TotalGrade") / PlayerPrefs.GetInt ("TotalPlaythroughs");
+
+		if (!GlobalData.GetGlobalData().RenderedSplashScreens)
             ActivateCanvas("Splash Screen");
         else
             ActivateCanvas("Main Menu");

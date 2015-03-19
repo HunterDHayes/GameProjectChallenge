@@ -160,14 +160,14 @@ public class SoundManager : MonoBehaviour
     {
         PlayerPrefs.SetFloat("SfxVolume", m_DefaultSfxVolume);
 
-        for (int i = 0; i < m_MusicAudioSources.Length; i++)
+		for (int i = 0; i < m_SfxAudioSources.Length; i++)
             m_SfxAudioSources[i].volume = m_DefaultSfxVolume / 100.0f;
 
         if (_value)
         {
             PlayerPrefs.SetFloat("SfxVolume", 0);
 
-            for (int i = 0; i < m_MusicAudioSources.Length; i++)
+			for (int i = 0; i < m_SfxAudioSources.Length; i++)
                 m_SfxAudioSources[i].volume = 0 / 100.0f;
         }
     }
@@ -193,13 +193,13 @@ public class SoundManager : MonoBehaviour
             {
                 m_MusicOnButton.gameObject.SetActive(true);
                 m_MusicOffButton.gameObject.SetActive(false);
-                TurnOnOffMusic(false);
+                TurnOnOffMusic(true);
             }
             else
             {
                 m_MusicOnButton.gameObject.SetActive(false);
                 m_MusicOffButton.gameObject.SetActive(true);
-                TurnOnOffMusic(true);
+                TurnOnOffMusic(false);
             }
         }
 
@@ -211,13 +211,13 @@ public class SoundManager : MonoBehaviour
             {
                 m_SFXOnButton.gameObject.SetActive(true);
                 m_SFXOffButton.gameObject.SetActive(false);
-                TurnOnOffSfx(false);
+                TurnOnOffSfx(true);
             }
             else
             {
                 m_SFXOnButton.gameObject.SetActive(false);
                 m_SFXOffButton.gameObject.SetActive(true);
-                TurnOnOffSfx(true);
+                TurnOnOffSfx(false);
             }
         }
     }
