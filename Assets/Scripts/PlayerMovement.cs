@@ -7,11 +7,16 @@ public class PlayerMovement : MonoBehaviour {
 	private Collider2D col;
 	private bool alive = true;
 	private int score = 0;
+	public Sprite[] playerSprtites;
 	// Use this for initialization
 	void Start () {
 		rigid = GetComponent<Rigidbody2D> ();
 		col = GetComponent<Collider2D> ();
 		PlayerPrefs.SetInt("ChangingScenes",1);
+
+		int playerShip = PlayerPrefs.GetInt ("PlayerChoice");
+		GetComponent<SpriteRenderer> ().sprite = playerSprtites[playerShip];
+		//orange,blue,pink,green
 	}
 	
 	// Update is called once per frame
