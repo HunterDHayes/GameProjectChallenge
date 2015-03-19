@@ -14,7 +14,4 @@ public class cloudScript : MonoBehaviour {
 			transform.position = new Vector3(10.0f,transform.position.y,transform.position.z);
 		}
 	}
-	void OnBecameInvisible(){
-		transform.position = new Vector3 (4.9f, transform.position.y);
-	}
 }
