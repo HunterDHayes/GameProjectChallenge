@@ -8,6 +8,10 @@ public class MainMenuController : MonoBehaviour
     private string m_sCurrentCanvas;
 
     public Text m_Highscore, m_LongestPlayTime, m_AvgGrade;
+	public Sprite[] CharacterChoices;
+	public int CharacterChoice;
+	public Image PlayerChoice;
+
 
     void Start()
     {
@@ -20,6 +24,8 @@ public class MainMenuController : MonoBehaviour
 
         if (soundManager)
             soundManager.SendMessage("PlayMusic", "MainMenu");
+
+		PlayerPrefs.SetInt ("PlayerChoice", 0);
     }
 
     void Update()
@@ -44,6 +50,12 @@ public class MainMenuController : MonoBehaviour
     {
         Application.LoadLevel(name);
     }
+
+	public void ChangePlane()
+	{
+		PlayerChoice.sprite = CharacterChoices [CharacterChoice];
+		PlayerPrefs.SetInt ("PlayerChoice", CharacterChoice);
+	}
 
     public void ExitGame()
     {
@@ -139,4 +151,24 @@ public class MainMenuController : MonoBehaviour
         m_LongestPlayTime.text = "0";
 		m_AvgGrade.text = "0";
     }
+
+	//When called, moves the character selection one step forward through the array, with loop around.
+	public void CharacterChoiceRight()
+	{
+		if (CharacterChoice < 3)
+			CharacterChoice = CharacterChoice + 1;
+		else
+			CharacterChoice = 0;
+		ChangePlane ();
+	}
+
+	//When called, moves the character selection one step back through the array, with loop around.
+	public void CharacterChoiceLeft()
+	{
+		if (CharacterChoice > 0)
+			CharacterChoice = CharacterChoice - 1;
+		else
+			CharacterChoice = 3;
+		ChangePlane ();
+	}
 }
