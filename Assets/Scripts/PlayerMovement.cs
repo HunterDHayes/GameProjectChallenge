@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Start () {
 		rigid = GetComponent<Rigidbody2D> ();
 		col = GetComponent<Collider2D> ();
+		PlayerPrefs.SetInt("ChangingScenes",1);
 	}
 	
 	// Update is called once per frame
@@ -18,9 +19,12 @@ public class PlayerMovement : MonoBehaviour {
 		//input
 		if (transform.position.y < -7.0f) {
 			Application.LoadLevel("GameOver");
+			PlayerPrefs.SetInt("ChangingScenes",0);
+			
 		}
 		if (Input.GetKeyDown(KeyCode.Escape)) {
-			Application.LoadLevel("MainMenu");
+			Application.LoadLevel("Main Menu");
+			PlayerPrefs.SetInt("ChangingScenes",0);
 		}
 
 			
@@ -51,8 +55,7 @@ public class PlayerMovement : MonoBehaviour {
 			Death();
 		}else if(collided.tag == "PickUp"){
 			Debug.Log ("hit a PickUp");
-			collided.GetComponent<SpriteRenderer>().enabled = false;
-			collided.GetComponent<PolygonCollider2D>().enabled = false;
+			Destroy(collided.transform.gameObject);
 			score += 10;
 		}else {
 			Debug.Log ("triggered something");
@@ -65,7 +68,8 @@ public class PlayerMovement : MonoBehaviour {
 			PlayerPrefs.SetInt ("Score", score);
 			PlayerPrefs.SetInt ("TotalPlaythroughs", PlayerPrefs.GetInt ("TotalPlaythroughs") + 1);
 			score = 0;
-
+			GameObject soundManager = GameObject.FindGameObjectWithTag("SoundManager");
+			soundManager.SendMessage("PlaySfx","Death");
 			alive = false;
 		}
 	}

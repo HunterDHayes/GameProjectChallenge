@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 419366}
   - 212: {fileID: 21202474}
   - 60: {fileID: 6002404}
+  - 114: {fileID: 11465834}
   m_Layer: 0
   m_Name: LaptopPickUp
   m_TagString: PickUp
@@ -72,6 +73,17 @@ PolygonCollider2D:
       - {x: -.0199999996, y: -.560000002}
       - {x: .419999987, y: -.430000007}
       - {x: .479999989, y: -.400000006}
+--- !u!114 &11465834
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 889241f713daaff48a97f35fadbb6542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21202474
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -95,7 +107,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: a3b3a17f667c41548ad61ce724b8e421, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000

@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 453236}
   - 212: {fileID: 21249254}
   - 60: {fileID: 6019698}
+  - 114: {fileID: 11463190}
   m_Layer: 0
   m_Name: GuitarPickUp
   m_TagString: PickUp
@@ -83,6 +84,17 @@ PolygonCollider2D:
       - {x: .829999983, y: -.839999974}
       - {x: .959999979, y: -.709999979}
       - {x: 1.10000002, y: -.5}
+--- !u!114 &11463190
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fbf7d4a7d7de45aa48037a4a53296, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21249254
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -106,7 +118,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: baf85c76afa312d40b6954287eb54248, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
