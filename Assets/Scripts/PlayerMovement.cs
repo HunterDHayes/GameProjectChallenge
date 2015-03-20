@@ -33,7 +33,10 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         waitTime -= Time.deltaTime;
-        m_fTimeAlive += Time.deltaTime;
+
+        if (score > 0)
+            m_fTimeAlive += Time.deltaTime;
+
         m_Score.text = "Score: " + score;
 
         if (once == false && Input.GetMouseButton(0) || waitTime < 0.0f)
@@ -79,6 +82,9 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collided)
     {
+        if (!alive)
+            return;
+
         if (collided.tag == "Cloud")
         {
             Debug.Log("hit a cloud");
@@ -131,6 +137,9 @@ public class PlayerMovement : MonoBehaviour
         GameObject soundManager = GameObject.FindGameObjectWithTag("SoundManager");
 
         if (soundManager)
+        {
             soundManager.SendMessage("StopAllMusic");
+            soundManager.SendMessage("StopAllSfx");
+        }
     }
 }

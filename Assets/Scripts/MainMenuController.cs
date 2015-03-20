@@ -15,8 +15,8 @@ public class MainMenuController : MonoBehaviour
 
 	void Start()
     {
-		m_Highscore.text = "" + PlayerPrefs.GetInt ("Highscore");
-		m_LongestPlayTime.text = "" + PlayerPrefs.GetFloat ("LongestPlayTime");
+		m_Highscore.text = "" + PlayerPrefs.GetInt("Highscore");
+		m_LongestPlayTime.text = "" + (int)PlayerPrefs.GetFloat("LongestPlayTime") + " secs";
         if (PlayerPrefs.GetInt("TotalPlaythroughs") == 0)
             m_AvgGrade.text = "NaN";
         else

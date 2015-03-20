@@ -6,19 +6,19 @@ public class GameWorld : MonoBehaviour
     public GameObject player;
     public float worldSpeed;
     public float spawnTime;
-    private float spawnTimer;
+    public float spawnTimer;
     public GameObject[] PickUpObjects;
     public GameObject[] ObstacleObjects;
     public GameObject[] Patterns;
     public float speedIncreaseTime;
-    private float speedIncreaseTimer;
+    public float speedIncreaseTimer;
     private float maxSpeed;
 
     // Use this for initialization
     void Start()
     {
         //init world
-        spawnTimer = spawnTime;
+        spawnTimer = spawnTime * 0.5f;
         speedIncreaseTimer = speedIncreaseTime;
         maxSpeed = worldSpeed * 2.0f;
     }
@@ -33,8 +33,10 @@ public class GameWorld : MonoBehaviour
         {
             if (worldSpeed < maxSpeed)
             {
-                worldSpeed += (worldSpeed * 0.5f);
+                worldSpeed += (worldSpeed * 0.1f);
+                spawnTime -= (spawnTime * 0.1f);
             }
+
             speedIncreaseTimer = speedIncreaseTime;
         }
 
@@ -42,6 +44,8 @@ public class GameWorld : MonoBehaviour
 
         if (spawnTimer < 0.0f)
         {
+            spawnTimer = spawnTime;
+            
             GameObject pattern = Patterns[Random.Range(0, Patterns.Length)];
 
             //make each object a random one
@@ -61,8 +65,6 @@ public class GameWorld : MonoBehaviour
                     newObject.transform.SetParent(transform);
                 }
             }
-
-            spawnTimer = spawnTime;
         }
 
     }
