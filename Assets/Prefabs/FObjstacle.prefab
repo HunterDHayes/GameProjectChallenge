@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 474614}
   - 212: {fileID: 21282756}
   - 60: {fileID: 6074580}
+  - 114: {fileID: 11409974}
   m_Layer: 0
   m_Name: FObjstacle
   m_TagString: Obstacle
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 191492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: .5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,6 +76,18 @@ PolygonCollider2D:
       - {x: .00999999978, y: -.910000026}
       - {x: .25, y: -.779999971}
       - {x: .370000005, y: -.75}
+--- !u!114 &11409974
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b992b257c037d41aa258c956935ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DeathSfxName: FailPaper
 --- !u!212 &21282756
 SpriteRenderer:
   m_ObjectHideFlags: 1

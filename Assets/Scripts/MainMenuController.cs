@@ -16,12 +16,22 @@ public class MainMenuController : MonoBehaviour
 	void Start()
     {
 		m_Highscore.text = "" + PlayerPrefs.GetInt ("Highscore");
-		m_LongestPlayTime.text = "" + PlayerPrefs.GetInt ("LongestPlayTime");
-		if (PlayerPrefs.GetInt ("TotalPlaythroughs") == 0)
-			m_AvgGrade.text = "0";
-		else
-			m_AvgGrade.text = "" + PlayerPrefs.GetInt ("TotalGrade") / PlayerPrefs.GetInt ("TotalPlaythroughs");
+		m_LongestPlayTime.text = "" + PlayerPrefs.GetFloat ("LongestPlayTime");
+        if (PlayerPrefs.GetInt("TotalPlaythroughs") == 0)
+            m_AvgGrade.text = "NaN";
+        else
+        {
+            float avgGrade = PlayerPrefs.GetFloat("TotalGrade") / PlayerPrefs.GetInt("TotalPlaythroughs");
+            
+            m_AvgGrade.text = "D";
 
+            if (avgGrade > 3)
+                m_AvgGrade.text = "C";
+            else if (avgGrade > 5)
+                m_AvgGrade.text = "B";
+            else if (avgGrade > 7)
+                m_AvgGrade.text = "A";
+        }
 		if (!GlobalData.GetGlobalData().RenderedSplashScreens)
             ActivateCanvas("Splash Screen");
         else

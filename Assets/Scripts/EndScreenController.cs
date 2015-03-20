@@ -4,24 +4,26 @@ using UnityEngine.UI;
 
 public class EndScreenController : MonoBehaviour
 {
-    public Text m_Score, m_Time;
-	public Sprite[] CharacterChoices;
-	public int CharacterChoice;
-	public Image PlayerChoice;
-	
+    public Text m_Score, m_Time, m_Grade;
+
     void Start()
     {
         m_Score.text = "" + PlayerPrefs.GetInt("Score");
-        m_Time.text = "" + PlayerPrefs.GetInt("Time");
-		CharacterChoice = PlayerPrefs.GetInt ("PlayerChoice");
-		PlayerChoice.sprite = CharacterChoices [CharacterChoice];
+        m_Time.text = "" + (int)PlayerPrefs.GetFloat("Time") + " secs";
 
-        GameObject soundManager = GameObject.FindGameObjectWithTag("SoundManager");
+        float grade = PlayerPrefs.GetInt("Score") / PlayerPrefs.GetFloat("Time");
+        PlayerPrefs.SetFloat("TotalGrade", PlayerPrefs.GetFloat("TotalGrade") + grade);
 
-        if (soundManager)
-            soundManager.SendMessage("StopAllMusic");
 
-        PlayMusic("GameOver");
+        m_Grade.text = "D";
+        if (grade > 3)
+            m_Grade.text = "C";
+        else if (grade > 5)
+            m_Grade.text = "B";
+        else if (grade > 7)
+            m_Grade.text = "A";
+
+        PlayMusic("Endscreen");
     }
 
     void Update()
