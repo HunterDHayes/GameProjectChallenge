@@ -121,8 +121,8 @@ PlayerSettings:
   iOSLaunchScreenCustomXibPath: 
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: E:/Projects/GameProjectChallenge/OneTwoPunch.keystore
+  AndroidKeyaliasName: hunter hayes
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   androidEnableBanner: 1
