@@ -74,7 +74,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleIdentifier: com.OnwTwoPunch.Planespiration
+  bundleIdentifier: com.OneTwoPunch.Planespiration
   bundleVersion: 1.0
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
@@ -136,7 +136,10 @@ PlayerSettings:
     m_Icons:
     - m_Icon: {fileID: 2800000, guid: b9e3c972f9472c84f940db34bbaef398, type: 3}
       m_Size: 128
-  m_BuildTargetBatching: []
+  m_BuildTargetBatching:
+  - m_BuildTarget: Android
+    m_StaticBatching: 1
+    m_DynamicBatching: 1
   webPlayerTemplate: APPLICATION:Default
   m_TemplateCustomTags: {}
   actionOnDotNetUnhandledException: 1
