@@ -27,9 +27,9 @@ public class MainMenuController : MonoBehaviour
 
             if (avgGrade > 3)
                 m_AvgGrade.text = "C";
-            else if (avgGrade > 5)
+            if (avgGrade > 5)
                 m_AvgGrade.text = "B";
-            else if (avgGrade > 7)
+            if (avgGrade > 7)
                 m_AvgGrade.text = "A";
         }
 		if (!GlobalData.GetGlobalData().RenderedSplashScreens)

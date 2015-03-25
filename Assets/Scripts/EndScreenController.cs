@@ -21,22 +21,20 @@ public class EndScreenController : MonoBehaviour
 
         if (soundManager)
             soundManager.SendMessage("PlaySfx", "GameOver");
+		
+		m_Grade.text = "D";
 
         if (grade > 3)
         {
             m_Grade.text = "C";
         }
-        else if (grade > 5)
+        if (grade > 5)
         {
             m_Grade.text = "B";
         }
-        else if (grade > 7)
+        if (grade > 7)
         {
             m_Grade.text = "A";
-        }
-        else
-        {
-            m_Grade.text = "D";
         }
 
         PlayMusic("Endscreen");
